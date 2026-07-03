@@ -16,12 +16,12 @@ public class SQLConnector {
 
     static {
         try {
-            // 1. Localizar mis conjuntos de Wallet
+            // 1. Localizar la carpeta de la Wallet en resources
             ClassLoader classLoader = SQLConnector.class.getClassLoader();
-            URL walletUrl = classLoader.getResource("wallet/");
+            URL walletUrl = classLoader.getResource("Wallet.wallet/");
 
             if (walletUrl == null) {
-                throw new RuntimeException("No se encontró la Wallet");
+                throw new RuntimeException("No se encontró la carpeta 'wallet' en resources.");
             }
 
             String walletPath = new File(walletUrl.toURI()).getAbsolutePath();
@@ -32,39 +32,36 @@ public class SQLConnector {
             String dbPass = System.getenv("DB_PASS");
             String dbName = System.getenv("DB_NAME");
 
-            // Si falta alguno en el entorno, buscamos en el archivo .properties
+            // 3. Si falta alguno en el entorno, buscamos en el archivo .properties
             if (dbUser == null || dbPass == null || dbName == null) {
-                System.err.println("Advertencia: Faltan variables de entorno de la BD. Buscando en credentials.properties...");
+                System.out.println("Cargando credenciales desde credentials.properties...");
                 Properties creds = new Properties();
                 try (InputStream is = classLoader.getResourceAsStream("credentials.properties")) {
                     if (is == null) {
-                        throw new RuntimeException("No se encontró el archivo credentials.properties ni las variables de entorno de la base de datos.");
+                        throw new RuntimeException("No se encontró el archivo credentials.properties.");
                     }
                     creds.load(is);
 
-                    // Si ya se habían leído del entorno, conservamos ese valor; si no, del archivo
                     if (dbUser == null) dbUser = creds.getProperty("db.user");
                     if (dbPass == null) dbPass = creds.getProperty("db.pass");
                     if (dbName == null) dbName = creds.getProperty("db.name");
                 }
             }
 
-            // Validar que finalmente tengamos el nombre de la BD
             if (dbName == null) {
-                throw new RuntimeException("El nombre de la base de datos (db.name / DB_NAME) no está configurado.");
+                throw new RuntimeException("El nombre de la base de datos (db.name) no está configurado.");
             }
 
-            // Configuración de Hikari (incluye conf de conexion y pool)
+            // 4. Configuración de HikariCP para Oracle
             HikariConfig config = new HikariConfig();
             config.setDriverClassName("oracle.jdbc.OracleDriver");
 
-            // Concatenamos la variable dbName dinámicamente aquí:
+            // Concatenación de la URL usando TNS_ADMIN
             config.setJdbcUrl("jdbc:oracle:thin:@" + dbName + "?TNS_ADMIN=" + walletPath);
-
-            // Asignar los valores dinámicos y seguros
             config.setUsername(dbUser);
             config.setPassword(dbPass);
 
+            // Configuraciones del Pool
             config.setMaximumPoolSize(10);
             config.setMinimumIdle(2);
             config.setIdleTimeout(30000);
@@ -74,10 +71,10 @@ public class SQLConnector {
             config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
             dataSource = new HikariDataSource(config);
-            System.out.println("¡Pool de conexiones a la base de datos inicializado con éxito!");
+            System.out.println("¡Conexión a Oracle Cloud establecida con éxito!");
 
         } catch (Exception e) {
-            System.err.println("Error crítico al inicializar la base de datos");
+            System.err.println("Error al inicializar la base de datos");
             e.printStackTrace();
             throw new ExceptionInInitializerError(e);
         }
