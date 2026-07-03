@@ -40,6 +40,7 @@
             <version>23.4.0.24.05</version>
             <type>pom</type>
         </dependency>
+
         <!-- Dependencias para usar JSTL -->
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
