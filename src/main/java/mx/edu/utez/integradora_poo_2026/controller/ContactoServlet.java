@@ -5,21 +5,21 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import mx.edu.utez.integradora_poo_2026.model.Mascota;
-import mx.edu.utez.integradora_poo_2026.model.dao.MascotaDao;
+import mx.edu.utez.integradora_poo_2026.model.Contacto;
+import mx.edu.utez.integradora_poo_2026.model.dao.ContactoDao;
 
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "MascotaServlet", value = "/mascota")
-public class MascotaServlet extends HttpServlet {
+public class ContactoServlet extends HttpServlet {
 
-    private final MascotaDao mascotaDao = new MascotaDao();
+    private final ContactoDao contactoDao = new ContactoDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Mascota> lista = mascotaDao.getAll();
+        List<Contacto> lista = contactoDao.getAll();
         request.setAttribute("listaMascotas", lista);
         request.getRequestDispatcher("gestion-mascotas.jsp").forward(request, response);
     }
@@ -30,26 +30,26 @@ public class MascotaServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         try {
             String nombre = request.getParameter("nombre");
-            String especie = request.getParameter("especie");
-            int edad = Integer.parseInt(request.getParameter("edad"));
-            String personalidad = request.getParameter("personalidad");
-            String foto = request.getParameter("foto");
-            boolean vacunada = request.getParameter("vacunada") != null;
+            String apellidos = request.getParameter("apellidos");
+            int telefono = Integer.parseInt(request.getParameter("Telefono"));
+            String telefono_alternativo = request.getParameter("Telefono Alternativo");
+            String correo = request.getParameter("correo");
+            String red_social = request.getParameter("Red_Social");
 
-            Mascota nuevaMascota = new Mascota();
-            nuevaMascota.setNombre(nombre);
-            nuevaMascota.setEspecie(especie);
-            nuevaMascota.setEdad(edad);
-            nuevaMascota.setPersonalidad(personalidad);
-            nuevaMascota.setFoto(foto);
-            nuevaMascota.setVacunada(vacunada);
+            Contacto nuevaContacto = new Contacto();
+            nuevaContacto.setNombre(nombre);
+            nuevaContacto.setApellidos(apellidos);
+            nuevaContacto.setTelefono(telefono);
+            nuevaContacto.setTelefono_alternativo(telefono_alternativo);
+            nuevaContacto.setCorreo(correo);
+            nuevaContacto.setRed_social(red_social);
 
-            mascotaDao.create(nuevaMascota);
+            contactoDao.create(nuevaContacto);
         } catch (NumberFormatException e) {
             System.err.println("Error al transformar datos numéricos en el registro: " + e.getMessage());
             e.printStackTrace();
         }
 
-        response.sendRedirect("mascota");
+        response.sendRedirect("contacto");
     }
 }
