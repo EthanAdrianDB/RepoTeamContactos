@@ -66,8 +66,8 @@
         <c:otherwise>
             <c:forEach var="contacto" items="${contactos}">
                 <tr>
-                    <td>${contacto.propiedad1}</td>
-                    <td>${contacto.propiedad2}</td>
+                    <td>${contacto.nombre}</td>
+                    <td>${contacto.apelidos}</td>
                     <td>
                         <a href="editar?id=${contacto.id}">Editar</a> |
                         <a href="eliminar?id=${contacto.id}">Eliminar</a>
