@@ -17,11 +17,11 @@
         <input type="text" id="nombre" name="nombre" placeholder="Ej: Rodrigo Adrian" required>
     </div>
     <div>
-        <label for="ap">Apellidos:</label>
+        <label for="apellidos">Apellidos:</label>
         <input type="text" id="ap" name="ap" placeholder="Ej: Soto Sanchez" required>
     </div>
     <div>
-        <label for="number">Telefono:</label>
+        <label for="telefono">Telefono:</label>
         <input type="number" id="number" name="number" placeholder="Ej: 7770000000" required>
     </div>
     <div>
@@ -68,6 +68,10 @@
                 <tr>
                     <td>${contacto.nombre}</td>
                     <td>${contacto.apelidos}</td>
+                    <td>${contacto.telefono}</td>
+                    <td>${contacto.telefono_alternativo}</td>
+                    <td>${contacto.correo}</td>
+                    <td>${contacto.red_social}</td>
                     <td>
                         <a href="editar?id=${contacto.id}">Editar</a> |
                         <a href="eliminar?id=${contacto.id}">Eliminar</a>
