@@ -29,19 +29,19 @@ public class ContactoServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         try {
-            String nombre = request.getParameter("nombre");
+            String nombres = request.getParameter("nombres");
             String apellidos = request.getParameter("apellidos");
-            long telefono = Long.parseLong(request.getParameter("telefono"));
+            String telefono = request.getParameter("telefono");
             String telefono_alternativo = request.getParameter("telefono_alternativo");
             String correo = request.getParameter("correo");
             String red_social = request.getParameter("red_social");
 
             Contacto nuevaContacto = new Contacto();
-            nuevaContacto.setNombre(nombre);
+            nuevaContacto.setNombres(nombres);
             nuevaContacto.setApellidos(apellidos);
             nuevaContacto.setTelefono(telefono);
             nuevaContacto.setTelefono_alternativo(telefono_alternativo);
-            nuevaContacto.setCorreo(correo);
+            nuevaContacto.setCorreo_electronico(correo);
             nuevaContacto.setRed_social(red_social);
 
             contactoDao.create(nuevaContacto);

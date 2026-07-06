@@ -13,8 +13,8 @@
 
 <form action="contacto" method="POST">
     <div>
-        <label for="nombre">Nombre(s):</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ej: Rodrigo Adrian" required>
+        <label for="nombres">Nombre(s):</label>
+        <input type="text" id="nombres" name="nombres" placeholder="Ej: Rodrigo Adrian" required>
     </div>
     <div>
         <label for="apellidos">Apellidos:</label>
@@ -22,15 +22,15 @@
     </div>
     <div>
         <label for="telefono">Telefono:</label>
-        <input type="number" id="telefono" name="telefono" placeholder="Ej: 7770000000" required>
+        <input type="text" id="telefono" name="telefono" placeholder="Ej: 7770000000" required>
     </div>
     <div>
         <label for="telefono_alternativo">Telefono alternativo:</label>
         <input type="number" id="telefono_alternativo" name="telefono_alternativo" placeholder="Ej: 7771111111">
     </div>
     <div>
-        <label for="correo">Correo electronico:</label>
-        <input type="email" id="correo" name="correo" placeholder="Ej: example@gmail.com" required>
+        <label for="correo_electronico">Correo electronico:</label>
+        <input type="email" id="correo_electronico" name="correo_electronico" placeholder="Ej: example@gmail.com" required>
     </div>
     <div>
         <label for="red_social">Red Social:</label>
@@ -66,11 +66,11 @@
         <c:otherwise>
             <c:forEach var="contacto" items="${listaContacto}">
                 <tr>
-                    <td>${contacto.nombre}</td>
+                    <td>${contacto.nombres}</td>
                     <td>${contacto.apellidos}</td>
                     <td>${contacto.telefono}</td>
                     <td>${contacto.telefono_alternativo}</td>
-                    <td>${contacto.correo}</td>
+                    <td>${contacto.correo_electronico}</td>
                     <td>${contacto.red_social}</td>
                 </tr>
             </c:forEach>

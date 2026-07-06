@@ -27,7 +27,7 @@
                         <thead class="table-dark">
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
+                            <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>Telefono</th>
                             <th>Telefono alternativo</th>
@@ -39,11 +39,11 @@
                         <c:forEach items="${listaContacto}" var="contacto">
                             <tr>
                                 <td><strong>${contacto.id}</strong></td>
-                                <td>${contacto.nombre}</td>
+                                <td>${contacto.nombres}</td>
                                 <td><span class="badge bg-secondary">${contacto.apellidos}</span></td>
                                 <td>${contacto.telefono}</td>
                                 <td>${contacto.telefono_alternativo}</td>
-                                <td>${contacto.correo}</td>
+                                <td>${contacto.correo_electronico}</td>
                                 <td>${contacto.red_social}</td>
                             </tr>
                         </c:forEach>
@@ -65,8 +65,8 @@
                     <input type="hidden" name="action" value="create">
 
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre del contacto</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Rodrigo Adrian" required>
+                        <label for="nombres" class="form-label">Nombre del contacto</label>
+                        <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Ej: Rodrigo Adrian" required>
                     </div>
 
                     <div class="mb-3">
@@ -76,7 +76,7 @@
 
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Telefono</label>
-                        <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Ej: 7775329234" required>
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ej: 7775329234" required>
                     </div>
 
                     <div class="mb-3">
@@ -85,8 +85,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="correo" class="form-label">Correo electronico</label>
-                        <input type="email" class="form-control" id="correo" name="correo" placeholder="Ej: ejemplo@correo.com" required>
+                        <label for="correo_electronico" class="form-label">Correo electronico</label>
+                        <input type="email" class="form-control" id="correo_electronico" name="correo_electronico" placeholder="Ej: ejemplo@correo.com" required>
                     </div>
 
                     <div class="mb-3">

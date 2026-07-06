@@ -2,23 +2,23 @@ package mx.edu.utez.integradora_poo_2026.model;
 
 public class Contacto {
     private int id;
-    private String nombre;
+    private String nombres;
     private String apellidos;
-    private long telefono;
+    private String telefono;
     private String telefono_alternativo;
-    private String correo;
+    private String correo_electronico;
     private String red_social;
 
     public Contacto() {
     }
 
-    public Contacto(int id, String nombre, String apellidos, long telefono, String telefono_alternativo, String correo, String red_social) {
+    public Contacto(int id, String nombres, String apellidos, String telefono, String telefono_alternativo, String correo_electronico, String red_social) {
         this.id = id;
-        this.nombre = nombre;
+        this.nombres = nombres;
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.telefono_alternativo = telefono_alternativo;
-        this.correo = correo;
+        this.correo_electronico = correo_electronico;
         this.red_social = red_social;
     }
 
@@ -30,12 +30,12 @@ public class Contacto {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellidos() {
@@ -46,11 +46,11 @@ public class Contacto {
         this.apellidos = apellidos;
     }
 
-    public long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(long telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -62,12 +62,12 @@ public class Contacto {
         this.telefono_alternativo = telefono_alternativo;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getCorreo_electronico() {
+        return correo_electronico;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCorreo_electronico(String correo) {
+        this.correo_electronico = correo;
     }
 
     public String getRed_social() {
@@ -80,7 +80,7 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return id + ',' + nombre + ',' + apellidos + ',' + telefono
-                + ',' + telefono_alternativo + ',' + correo + ',' + red_social;
+        return id + ',' + nombres + ',' + apellidos + ',' + telefono
+                + ',' + telefono_alternativo + ',' + correo_electronico + ',' + red_social;
     }
 }
