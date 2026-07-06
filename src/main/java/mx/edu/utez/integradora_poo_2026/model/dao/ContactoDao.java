@@ -71,7 +71,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
                     m.setApellidos(rs.getString("apellidos"));
                     m.setTelefono(rs.getString("telefono"));
                     m.setTelefono_alternativo(rs.getString("telefono_alternativo"));
-                    m.setCorreo_electronico(rs.getString("correo"));
+                    m.setCorreo_electronico(rs.getString("correo_electronico"));
                     m.setRed_social(rs.getString("red_social"));
                     return m;
                 }
