@@ -104,7 +104,7 @@
 
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo Electronico</label>
-                        <input type="text" class="form-control" id="correo" name="correo" placeholder="Ej: el_mas_pro_del_mundo@algopuntocom.com" required>
+                        <input type="text" class="form-control" id="correo" name="correo" placeholder="Ej:el_mas_pro_del_mundo@algopuntocom.com" required>
                     </div>
                 </form>
             </div>

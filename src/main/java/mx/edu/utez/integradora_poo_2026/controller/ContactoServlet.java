@@ -11,7 +11,7 @@ import mx.edu.utez.integradora_poo_2026.model.dao.ContactoDao;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "MascotaServlet", value = "/mascota")
+@WebServlet(name = "ContactoServlet", value = "/contacto")
 public class ContactoServlet extends HttpServlet {
 
     private final ContactoDao contactoDao = new ContactoDao();
@@ -20,8 +20,8 @@ public class ContactoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Contacto> lista = contactoDao.getAll();
-        request.setAttribute("listaMascotas", lista);
-        request.getRequestDispatcher("gestion-mascotas.jsp").forward(request, response);
+        request.setAttribute("listaContacto", lista);
+        request.getRequestDispatcher("gestion-contacto.jsp").forward(request, response);
     }
 
     @Override
