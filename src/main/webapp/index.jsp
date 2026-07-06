@@ -18,23 +18,23 @@
     </div>
     <div>
         <label for="apellidos">Apellidos:</label>
-        <input type="text" id="ap" name="ap" placeholder="Ej: Soto Sanchez" required>
+        <input type="text" id="apellidos" name="apellidos" placeholder="Ej: Soto Sanchez" required>
     </div>
     <div>
         <label for="telefono">Telefono:</label>
-        <input type="number" id="number" name="number" placeholder="Ej: 7770000000" required>
+        <input type="number" id="telefono" name="telefono" placeholder="Ej: 7770000000" required>
     </div>
     <div>
-        <label for="numberop">Telefono alternativo:</label>
-        <input type="number" id="numberop" name="numberop" placeholder="Ej: 7771111111">
+        <label for="telefono_alternativo">Telefono alternativo:</label>
+        <input type="number" id="telefono_alternativo" name="telefono_alternativo" placeholder="Ej: 7771111111">
     </div>
     <div>
         <label for="correo">Correo electronico:</label>
         <input type="text" id="correo" name="correo" placeholder="Ej: example@gmail.com" required>
     </div>
     <div>
-        <label for="red">Red Social:</label>
-        <input type="text" id="red" name="red" placeholder="Ej: Eriis_Eriss" required>
+        <label for="red_social">Red Social:</label>
+        <input type="text" id="red_social" name="red_social" placeholder="Ej: Eriis_Eriss" required>
     </div>
 
     <button type="submit">Guardar Contacto</button>

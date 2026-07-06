@@ -20,7 +20,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
             ps.setString(1, entidad.getNombre());
             ps.setString(2, entidad.getApellidos());
             ps.setInt(3, entidad.getTelefono());
-            ps.setString(4, entidad.getTelefono_alternativo());
+            ps.setInt(4, entidad.getTelefono_alternativo());
             ps.setString(5, entidad.getCorreo());
             ps.setString(6, entidad.getRed_social());
 
@@ -46,7 +46,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
                 m.setNombre(rs.getString("nombre"));
                 m.setApellidos(rs.getString("apellidos"));
                 m.setTelefono(rs.getInt("Telefono"));
-                m.setTelefono_alternativo(rs.getString("Telefono Alternativo"));
+                m.setTelefono_alternativo(rs.getInt("Telefono Alternativo"));
                 m.setCorreo(rs.getString("correo"));
                 m.setRed_social(rs.getString("Red Social"));
                 datos.add(m);
@@ -71,7 +71,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
                     m.setNombre(rs.getString("nombre"));
                     m.setApellidos(rs.getString("apellidos"));
                     m.setTelefono(rs.getInt("Telefono"));
-                    m.setTelefono_alternativo(rs.getString("Telefono Alternativo"));
+                    m.setTelefono_alternativo(rs.getInt("Telefono Alternativo"));
                     m.setCorreo(rs.getString("correo"));
                     m.setRed_social(rs.getString("Red Social"));
                     return m;
@@ -92,7 +92,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
             ps.setString(1, entidad.getNombre());
             ps.setString(2, entidad.getApellidos());
             ps.setInt(3, entidad.getTelefono());
-            ps.setString(4, entidad.getTelefono_alternativo());
+            ps.setInt(4, entidad.getTelefono_alternativo());
             ps.setString(5, entidad.getCorreo());
             ps.setString(6, entidad.getRed_social());
             ps.setInt(7, entidad.getId());

@@ -86,7 +86,7 @@
 
                     <div class="mb-3">
                         <label for="telefono_alternativo" class="form-label">telefono_alternativo</label>
-                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" placeholder="Ej: 777225911" >
+                        <input type="number" class="form-control" id="telefono_alternativo" name="telefono_alternativo" placeholder="Ej: 777225911" >
                     </div>
 
 

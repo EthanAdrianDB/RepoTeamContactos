@@ -32,7 +32,7 @@ public class ContactoServlet extends HttpServlet {
             String nombre = request.getParameter("nombre");
             String apellidos = request.getParameter("apellidos");
             int telefono = Integer.parseInt(request.getParameter("Telefono"));
-            String telefono_alternativo = request.getParameter("Telefono Alternativo");
+            int telefono_alternativo = Integer.parseInt(request.getParameter("Telefono Alternativo"));
             String correo = request.getParameter("correo");
             String red_social = request.getParameter("Red_Social");
 

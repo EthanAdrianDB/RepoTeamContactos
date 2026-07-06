@@ -5,14 +5,14 @@ public class Contacto {
     private String nombre;
     private String apellidos;
     private int telefono;
-    private String telefono_alternativo;
+    private int telefono_alternativo;
     private String correo;
     private String red_social;
 
     public Contacto() {
     }
 
-    public Contacto(int id, String nombre, String apellidos, int Telefono, String telefono_alternativo, String correo, String red_social) {
+    public Contacto(int id, String nombre, String apellidos, int Telefono, int telefono_alternativo, String correo, String red_social) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -54,11 +54,11 @@ public class Contacto {
         this.telefono = telefono;
     }
 
-    public String getTelefono_alternativo() {
+    public int getTelefono_alternativo() {
         return telefono_alternativo;
     }
 
-    public void setTelefono_alternativo(String telefono_alternativo) {
+    public void setTelefono_alternativo(int telefono_alternativo) {
         this.telefono_alternativo = telefono_alternativo;
     }
 
