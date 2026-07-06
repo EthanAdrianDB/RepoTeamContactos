@@ -18,7 +18,7 @@ public class SQLConnector {
         try {
             // 1. Localizar la carpeta de la Wallet en resources
             ClassLoader classLoader = SQLConnector.class.getClassLoader();
-            URL walletUrl = classLoader.getResource("Wallet.wallet/");
+            URL walletUrl = classLoader.getResource("wallet/");
 
             if (walletUrl == null) {
                 throw new RuntimeException("No se encontró la carpeta 'wallet' en resources.");

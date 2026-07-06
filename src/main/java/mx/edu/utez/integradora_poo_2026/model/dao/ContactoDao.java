@@ -19,7 +19,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
             ps.setString(1, entidad.getNombre());
             ps.setString(2, entidad.getApellidos());
-            ps.setInt(3, entidad.getTelefono());
+            ps.setLong(3, entidad.getTelefono());
             ps.setString(4, entidad.getTelefono_alternativo());
             ps.setString(5, entidad.getCorreo());
             ps.setString(6, entidad.getRed_social());
@@ -45,10 +45,10 @@ public class ContactoDao implements Dao<Contacto, Integer>{
                 m.setId(rs.getInt("id"));
                 m.setNombre(rs.getString("nombre"));
                 m.setApellidos(rs.getString("apellidos"));
-                m.setTelefono(rs.getInt("Telefono"));
-                m.setTelefono_alternativo(rs.getString("Telefono Alternativo"));
+                m.setTelefono(rs.getLong("telefono"));
+                m.setTelefono_alternativo(rs.getString("telefono_alternativo"));
                 m.setCorreo(rs.getString("correo"));
-                m.setRed_social(rs.getString("Red Social"));
+                m.setRed_social(rs.getString("red_social"));
                 datos.add(m);
             }
         } catch (SQLException e) {
@@ -70,10 +70,10 @@ public class ContactoDao implements Dao<Contacto, Integer>{
                     m.setId(rs.getInt("id"));
                     m.setNombre(rs.getString("nombre"));
                     m.setApellidos(rs.getString("apellidos"));
-                    m.setTelefono(rs.getInt("Telefono"));
-                    m.setTelefono_alternativo(rs.getString("Telefono Alternativo"));
+                    m.setTelefono(rs.getLong("telefono"));
+                    m.setTelefono_alternativo(rs.getString("telefono_alternativo"));
                     m.setCorreo(rs.getString("correo"));
-                    m.setRed_social(rs.getString("Red Social"));
+                    m.setRed_social(rs.getString("red_social"));
                     return m;
                 }
             }
@@ -91,7 +91,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
             ps.setString(1, entidad.getNombre());
             ps.setString(2, entidad.getApellidos());
-            ps.setInt(3, entidad.getTelefono());
+            ps.setLong(3, entidad.getTelefono());
             ps.setString(4, entidad.getTelefono_alternativo());
             ps.setString(5, entidad.getCorreo());
             ps.setString(6, entidad.getRed_social());

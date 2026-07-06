@@ -31,10 +31,10 @@ public class ContactoServlet extends HttpServlet {
         try {
             String nombre = request.getParameter("nombre");
             String apellidos = request.getParameter("apellidos");
-            int telefono = Integer.parseInt(request.getParameter("Telefono"));
-            String telefono_alternativo = request.getParameter("Telefono Alternativo");
+            long telefono = Long.parseLong(request.getParameter("telefono"));
+            String telefono_alternativo = request.getParameter("telefono_alternativo");
             String correo = request.getParameter("correo");
-            String red_social = request.getParameter("Red_Social");
+            String red_social = request.getParameter("red_social");
 
             Contacto nuevaContacto = new Contacto();
             nuevaContacto.setNombre(nombre);
