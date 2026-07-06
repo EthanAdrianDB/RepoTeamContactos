@@ -13,12 +13,13 @@ import java.util.List;
 public class ContactoDao implements Dao<Contacto, Integer>{
     @Override
     public boolean create(Contacto entidad) {
-        String sql = "INSERT INTO MASCOTAS(nombre, apellidos, telefono, telefono_alternativo, correo, red_social) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO contactos(nombres, apellidos, telefono, telefono_alternativo, correo_electronico, red_social) VALUES(?, ?, ?, ?, ?, ?)";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
+
             ps.setString(1, entidad.getNombre());
             ps.setString(2, entidad.getApellidos());
-            ps.setInt(3, entidad.getTelefono());
+            ps.setInt(3, entidad.getTelefono()); // Ahora es String
             ps.setString(4, entidad.getTelefono_alternativo());
             ps.setString(5, entidad.getCorreo());
             ps.setString(6, entidad.getRed_social());
@@ -36,19 +37,19 @@ public class ContactoDao implements Dao<Contacto, Integer>{
     public List<Contacto> getAll() {
         List<Contacto> datos = new ArrayList<>();
         try (Connection con = SQLConnector.getConnection();
-             PreparedStatement ps = con.prepareStatement("SELECT * FROM MASCOTAS");
+             PreparedStatement ps = con.prepareStatement("SELECT * FROM contactos");
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                Contacto m = new Contacto();
-                m.setId(rs.getInt("id"));
-                m.setNombre(rs.getString("nombre"));
-                m.setApellidos(rs.getString("apellidos"));
-                m.setTelefono(rs.getInt("Telefono"));
-                m.setTelefono_alternativo(rs.getString("Telefono Alternativo"));
-                m.setCorreo(rs.getString("correo"));
-                m.setRed_social(rs.getString("Red Social"));
-                datos.add(m);
+                Contacto c = new Contacto();
+                c.setId(rs.getInt("id"));
+                c.setNombre(rs.getString("nombres"));
+                c.setApellidos(rs.getString("apellidos"));
+                c.setTelefono(rs.getInt("telefono"));
+                c.setTelefono_alternativo(rs.getString("telefono_alternativo"));
+                c.setCorreo(rs.getString("correo_electronico"));
+                c.setRed_social(rs.getString("red_social"));
+                datos.add(c);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,22 +59,22 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
     @Override
     public Contacto getById(Integer id) {
-        String sql = "SELECT * FROM MASCOTAS WHERE id = ?";
+        String sql = "SELECT * FROM contactos WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    Contacto m = new Contacto();
-                    m.setId(rs.getInt("id"));
-                    m.setNombre(rs.getString("nombre"));
-                    m.setApellidos(rs.getString("apellidos"));
-                    m.setTelefono(rs.getInt("Telefono"));
-                    m.setTelefono_alternativo(rs.getString("Telefono Alternativo"));
-                    m.setCorreo(rs.getString("correo"));
-                    m.setRed_social(rs.getString("Red Social"));
-                    return m;
+                    Contacto c = new Contacto();
+                    c.setId(rs.getInt("id"));
+                    c.setNombre(rs.getString("nombres"));
+                    c.setApellidos(rs.getString("apellidos"));
+                    c.setTelefono(rs.getInt("telefono"));
+                    c.setTelefono_alternativo(rs.getString("telefono_alternativo"));
+                    c.setCorreo(rs.getString("correo_electronico"));
+                    c.setRed_social(rs.getString("red_social"));
+                    return c;
                 }
             }
         } catch (SQLException e) {
@@ -84,7 +85,8 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
     @Override
     public boolean update(Contacto entidad) {
-        String sql = "UPDATE MASCOTAS SET nombre = ?, especie = ?, edad = ?, personalidad = ?, foto = ?, vacunada = ? WHERE id = ?";
+        // La consulta de update también traía datos de mascotas, ya la corregí
+        String sql = "UPDATE contactos SET nombres = ?, apellidos = ?, telefono = ?, telefono_alternativo = ?, correo_electronico = ?, red_social = ? WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -106,12 +108,11 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
     @Override
     public boolean delete(Integer id) {
-        String sql = "DELETE FROM MASCOTAS WHERE id = ?";
+        String sql = "DELETE FROM contactos WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
-
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
         } catch (SQLException e) {
