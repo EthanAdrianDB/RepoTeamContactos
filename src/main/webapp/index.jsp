@@ -11,7 +11,7 @@
 
 <h2>Agregar Nuevo Contacto</h2>
 
-<form action="tuServletOControlador" method="POST">
+<form action="contacto" method="POST">
     <div>
         <label for="nombre">Nombre(s):</label>
         <input type="text" id="nombre" name="nombre" placeholder="Ej: Rodrigo Adrian" required>
