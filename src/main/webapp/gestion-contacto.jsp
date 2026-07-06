@@ -14,7 +14,7 @@
 
         <c:choose>
             <%-- Condición 1: Si la lista es nula o está vacía --%>
-            <c:when test="${empty listaMascotas}">
+            <c:when test="${empty listaContacto}">
                 <div class="alert alert-info text-center mt-4" role="alert">
                     <i class="bi bi-info-circle-fill"></i> No hay contactos registradas en este momento.
                 </div>
@@ -29,27 +29,26 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            <th>Red Social</th>
                             <th>Telefono</th>
                             <th>Telefono Alternativo</th>
                             <th>Correo Electronico</th>
+                            <th>Red Social</th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${listaMascotas}" var="mascota">
+                        <c:forEach items="${listaContacto}" var="contacto">
                             <tr>
-                                <td><strong>${mascota.id}</strong></td>
-                                <td>${mascota.nombre}</td>
-                                <td><span class="badge bg-secondary">${mascota.especie}</span></td>
-                                <td>${mascota.edad} años</td>
-                                <td>${mascota.personalidad}</td>
-                                <td>
-                                    <img src="${mascota.foto}" alt="${mascota.nombre}" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
-                                </td>
+                                <td><strong>${contacto.id}</strong></td>
+                                <td>${contacto.nombre}</td>
+                                <td><span class="badge bg-secondary">${contacto.apellidos}</span></td>
+                                <td>${contacto.telefono} años</td>
+                                <td>${contacto.telefono_alternativo}</td>
+                                <td>${contacto.correo}</td>
+                                <td>${contacto.red_social}</td>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${mascota.vacunada}">
+                                        <c:when test="${contacto.vacunada}">
                                             <span class="text-success"><i class="bi bi-check-circle-fill"></i> Sí</span>
                                         </c:when>
                                         <c:otherwise>
@@ -79,17 +78,6 @@
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Firulais" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="red_social" class="form-label">Red Social</label>
-                        <select class="form-select" id="red_social" name="red_social" required>
-                            <option value="" selected disabled>Selecciona una opción...</option>
-                            <option value="Feisbuk">facebook</option>
-                            <option value="instagram">instagram</option>
-                            <option value="twitter">twitter</option>
-                            <option value="tistos">tistos</option>
-                            <option value="tutube">tutube</option>
-                        </select>
-                    </div>
 
                     <div class="mb-3">
                         <label for="telefono" class="form-label">telefono</label>
@@ -105,6 +93,17 @@
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo Electronico</label>
                         <input type="text" class="form-control" id="correo" name="correo" placeholder="Ej:el_mas_pro_del_mundo@algopuntocom.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="red_social" class="form-label">Red Social</label>
+                        <select class="form-select" id="red_social" name="red_social" required>
+                            <option value="" selected disabled>Selecciona una opción...</option>
+                            <option value="Feisbuk">facebook</option>
+                            <option value="instagram">instagram</option>
+                            <option value="twitter">twitter</option>
+                            <option value="tistos">tistos</option>
+                            <option value="tutube">tutube</option>
+                        </select>
                     </div>
                 </form>
             </div>
