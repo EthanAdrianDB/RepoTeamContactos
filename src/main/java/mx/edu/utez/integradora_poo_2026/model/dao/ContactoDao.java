@@ -107,7 +107,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
     @Override
     public boolean delete(Integer id) {
-        String sql = "DELETE FROM MASCOTAS WHERE id = ?";
+        String sql = "DELETE FROM CONTACTO WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
