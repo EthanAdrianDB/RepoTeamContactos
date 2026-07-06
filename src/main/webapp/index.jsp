@@ -21,7 +21,7 @@
         <input type="text" id="apellidos" name="apellidos" placeholder="Ej: Soto Sanchez" required>
     </div>
     <div>
-        <label for="telefono">Telefono:</label>
+        <label for="telefono">Telefono :</label>
         <input type="number" id="telefono" name="telefono" placeholder="Ej: 7770000000" required>
     </div>
     <div>
