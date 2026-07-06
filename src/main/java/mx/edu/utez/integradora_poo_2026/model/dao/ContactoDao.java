@@ -13,7 +13,7 @@ import java.util.List;
 public class ContactoDao implements Dao<Contacto, Integer>{
     @Override
     public boolean create(Contacto entidad) {
-        String sql = "INSERT INTO MASCOTAS(nombre, apellidos, telefono, telefono_alternativo, correo, red_social) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO CONTACTO(nombre, apellidos, telefono, telefono_alternativo, correo, red_social) VALUES(?, ?, ?, ?, ?, ?)";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -37,7 +37,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
     public List<Contacto> getAll() {
         List<Contacto> datos = new ArrayList<>();
         try (Connection con = SQLConnector.getConnection();
-             PreparedStatement ps = con.prepareStatement("SELECT * FROM MASCOTAS");
+             PreparedStatement ps = con.prepareStatement("SELECT * FROM CONTACTO");
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
@@ -59,7 +59,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
     @Override
     public Contacto getById(Integer id) {
-        String sql = "SELECT * FROM MASCOTAS WHERE id = ?";
+        String sql = "SELECT * FROM CONTACTO WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -85,7 +85,7 @@ public class ContactoDao implements Dao<Contacto, Integer>{
 
     @Override
     public boolean update(Contacto entidad) {
-        String sql = "UPDATE MASCOTAS SET nombre = ?, especie = ?, edad = ?, personalidad = ?, foto = ?, vacunada = ? WHERE id = ?";
+        String sql = "UPDATE CONTACTO SET nombre = ?, apellidos = ?, telefono = ?, telefono_alternativo = ?, correo = ?, red_social = ? WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
